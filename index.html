@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>YouZitsu</title>
+</head>
+<body>
+    <section>
+        <img src="images/Background.png" alt="Classroom">
+        <div class="nav-arrow left" onclick="changeQuote(-1)">&#10094;</div>
+        <div class="nav-arrow right" onclick="changeQuote(1)">&#10095;</div>
+        <div class="overlay-box">
+            <div class="Right-pink-box"></div>
+            <div class="Left-pink-box"></div>
+            <div class="Left-White-box"></div>
+            <div class="Bottom-Right-Pink-box"></div>
+            <div class="Bottom-Left-White-box"></div>
+            <div class="Bottom-Right-White-box"></div>
+            <div class="Text"><p>CLASSROOM OF THE ELITE</p></div>
+            <div class="japanese-text"><p>ようこそ実力至上主義の教室へ</p></div>
+            <div id="quote-wrapper">
+                <span class="quote-marks left">“</span>
+                <span id="quote-text" class="quote-text">What is <span class="pink-text">evil</span>? <br> - Whatever springs from weakness.</span>
+                <span class="quote-marks right">”</span>
+                
+                <div class="separator-line">
+                    
+                </div>
+                
+                <div class="author-block">
+                    <div id="quote-author" class="author-name">FRIEDRICH NIETZSCHE</div>
+                    <div id="quote-source" class="author-source">The Antichrist</div>
+                </div>
+            </div>
+
+            <div id="ep-indicator" class="ep-indicator">SEASON 01 EPISODE 01</div>
+       
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>
