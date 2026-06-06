@@ -70,54 +70,21 @@ html, body {
             border: 2px solid #ffffff;
             background-color: transparent;
         }
-        .Right-pink-box {
+        .Right-pink-box, .Left-pink-box, .Left-White-box,
+        .Bottom-Right-White-box, .Bottom-Left-White-box, .Bottom-Right-Pink-box {
             position: absolute;
-            top: 2%;
-            bottom: 96%;
-            left: 98%;
-            right: 1%;
-            background-color: rgb(254, 1, 126);
+            width: 20px;
+            height: 20px;
         }
-        .Left-pink-box {
-            position: absolute;
-            top: 2%;     
-            bottom: 96%; 
-            left: 1%;    
-            right: 98%;  
-            background-color: rgb(254, 1, 126);
-        }
-        .Left-White-box {
-            position: absolute;
-            top: 2%;     
-            bottom: 96%;  
-            left: 2.5%;  
-            right: 96.5%;
-            background-color: #ffffff; 
-        }
-       .Bottom-Right-White-box {
-            position: absolute;
-            top: 96%;
-            bottom: 2%;
-            left: 96.5%;
-            right: 2.5%;
-            background-color: rgb(254, 1, 126);
-        }
-        .Bottom-Left-White-box {
-            position: absolute;
-            top: 96%;
-            bottom: 2%;
-            left: 1%;
-            right: 98%;
-            background-color: #ffffff;
-        }
-        .Bottom-Right-Pink-box {
-            position: absolute;
-            top: 96%;
-            bottom: 2%;
-            left: 98%;
-            right: 1%;
-            background-color: #ffffff;
-        }
+
+        /* Position them securely on the 2px border */
+        .Left-pink-box { top: 15px; left: 15px; background-color: rgb(254, 1, 126); }
+        .Left-White-box { top: 15px; left: 45px; background-color: #ffffff; }
+        .Right-pink-box { top: 15px; right: 15px; background-color: rgb(254, 1, 126); }
+
+        .Bottom-Left-White-box { bottom: 15px; left: 15px; background-color: #ffffff; }
+        .Bottom-Right-White-box { bottom: 15px; right: 15px; background-color: #ffffff; }
+        .Bottom-Right-Pink-box { bottom: 15px; right: 45px; background-color: rgb(254, 1, 126); }
         .Text {
             font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
             font-weight: bold;
@@ -127,8 +94,7 @@ html, body {
             font-size: 18px;
             position: absolute;
             bottom: 93.5%;     
-            left: 4.5%;  
-        
+            left: max(4.5%, 80px);
         }
         .japanese-text {
             writing-mode: vertical-rl; 
@@ -139,8 +105,8 @@ html, body {
             font-size: 20px;
             letter-spacing: 0.2em;
             position: absolute;
-            bottom: 55.5%;
-            right: 96.9%;   
+            top: 45px;
+            left: -8px;
         }
 
 
@@ -173,7 +139,23 @@ html, body {
             line-height: 1.3;
             color: #ffffff;
         }
+        #quote-text {
+            display: inline-block; 
+            cursor: pointer;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
 
+       
+        #quote-text:hover {
+            transform: scale(1.02);
+            text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.4);
+        }
+
+      
+        #quote-text:hover .pink-text {
+            text-shadow: 0px 0px 20px rgba(254, 1, 126, 0.8);
+        }
+                
 
         .pink-text {
             color: rgb(254, 1, 126);
@@ -217,7 +199,7 @@ html, body {
         .ep-indicator {
             position: absolute;
             bottom: 2%; 
-            right: 4.5%; 
+            right: max(4.5%, 80px);
             color: #ffffff;
             font-family: "Helvetica Neue", Arial, sans-serif;
             letter-spacing: 0.3em;
@@ -258,3 +240,142 @@ html, body {
             0% { opacity: 0; transform: translateY(15px); }
             100% { opacity: 1; transform: translateY(0); }
         }
+
+        @media (max-width: 768px) {
+            .Text {
+                    font-size: 16px;
+                    left: 78px;
+                    top: 1px;
+            }
+
+            .ep-indicator {
+                    font-size: 0.9rem;
+                    right: 70px;
+            }  
+            .quote-marks {
+                font-size: 3rem; 
+            }
+            .quote-text {
+                font-size: 2.6rem; 
+            } 
+            #quote-wrapper {
+                width: calc(100% - 100px); 
+                left: 55px; 
+                
+                top: 25%;
+                transform: none; 
+            }
+
+            .author-name {
+                font-size: 0.9rem;
+            }
+            .author-source {
+                font-size: 1rem;
+            }
+
+            .nav-arrow.left { left: 4%; }
+            .nav-arrow.right { right: 4%; }
+}
+
+            .menu-btn {
+                position: absolute;
+                top: 4%;
+                right: 4.5%;
+                color: #ffffff;
+                font-family: "Times New Roman", Times, serif;
+                font-size: 1.2rem;
+                font-weight: bold;
+                letter-spacing: 0.2em;
+                cursor: pointer;
+                z-index: 10;
+                transition: color 0.3s ease;
+            }
+
+            .menu-btn:hover {
+                color: rgb(254, 1, 126);
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 4%;
+                right: 4.5%;
+                color: #ffffff;
+                font-size: 2rem;
+                cursor: pointer;
+                z-index: 60; /* Must be higher than everything else */
+                transition: transform 0.3s ease, color 0.3s ease;
+            }
+
+            .close-btn:hover {
+                color: rgb(254, 1, 126);
+                transform: scale(1.2);
+            }
+
+
+            .menu-container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: 50; 
+                background-color: rgba(0, 0, 0, 0.8);
+                overflow: hidden;
+                
+            
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.4s ease;
+            }
+
+            .menu-container.active {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .menu-container iframe {
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+
+
+            .menu-text {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                text-align: center;
+                z-index: 55;
+                
+
+                opacity: 0;
+            }
+
+
+            .menu-container.active .menu-text {
+                animation: fadeInMenu 0.6s ease-out forwards 0.1s;
+            }
+
+            .menu-text a {
+                color: #ffffff;
+                font-family: "Times New Roman", Times, serif;
+                font-size: 2.2rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-decoration: none;
+                letter-spacing: 0.25em;
+                transition: color 0.3s ease, transform 0.2s ease;
+            }
+
+            .menu-text a:hover {
+                color: rgb(254, 1, 126); 
+                transform: scale(1.05);
+            }
+
+            @keyframes fadeInMenu {
+                to { opacity: 1; }
+            }
