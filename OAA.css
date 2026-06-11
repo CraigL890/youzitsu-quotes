@@ -1,0 +1,68 @@
+ :root{
+    --bg:#0a0e17;
+    --panel:#0f1521;
+    --panel-2:#131b2b;
+    --border:#1f2a3d;
+    --grid:#243149;
+    --fg:#e6ecf5;
+    --muted:#7a8aa5;
+    --primary:#fe017e;
+    --primary-glow:rgba(254,1,126,.55);
+    --a:#7dd3fc; --b:#86efac; --c:#fcd34d; --d:#fda4af;
+    --font-mono:"JetBrains Mono",ui-monospace,monospace;
+    --font-serif:"Cormorant Garamond",serif;
+    --font-sans:"Inter",system-ui,sans-serif;
+  }
+
+html,body{
+    margin:0;
+    padding:0;
+    background:var(--bg);
+    color:var(--fg);
+    font-family:var(--font-sans);min-height:100%
+}
+body{
+    background-image:
+      radial-gradient(1200px 600px at 80% -10%, rgba(254,1,126,.08), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(125,211,252,.05), transparent 60%),
+      linear-gradient(var(--bg),var(--bg));
+  }
+button{
+    font:inherit;
+    color:inherit;
+    background:none;
+    border:0;
+    cursor:pointer
+}
+  .mono{font-family:var(--font-mono)}
+  .serif{font-family:var(--font-serif)}
+  .muted{color:var(--muted)}
+  .primary{color:var(--primary)}
+
+  /* HEADER */
+header.top{
+    height:56px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 18px;background:rgba(15,21,33,.7);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+}
+.brand{display:flex;align-items:center;gap:12px;min-width:0}
+  .brand .logo{width:28px;height:28px;display:grid;place-items:center;border:1px solid var(--primary);color:var(--primary);font-family:var(--font-mono);font-size:12px}
+  .brand .sub{font-family:var(--font-mono);font-size:10px;letter-spacing:.3em;color:var(--muted)}
+  .brand .title{font-family:var(--font-serif);font-size:18px;line-height:1}
+  .brand .title span{color:var(--primary)}
+  .brand .title small{color:var(--muted);font-family:var(--font-mono);font-size:11px;margin-left:8px}
+  .meta{display:flex;gap:14px;font-family:var(--font-mono);font-size:10px;color:var(--muted)}
+  .meta .live{display:flex;align-items:center;gap:6px}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--primary);box-shadow:0 0 8px var(--primary);animation:blink 1.4s infinite}
+  
+  @keyframes blink{
+    0%,100%{opacity:1}50%{opacity:.25}}
+  @media(max-width:720px){
+    .meta{
+        display:none
+    }
+}
